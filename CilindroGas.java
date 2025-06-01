@@ -10,14 +10,14 @@ class CilindroGas {
     private float qtdeUltimoConsumo;
 
     // Construtor
-    public CilindroGas(int idCilindro, float capacidadeMaxima) {
+    public CilindroGas(int idCilindro, float capacidadeMaxima) throws ConsumoExcedenteException {
         if(capacidadeMaxima <= 0) {
             throw new IllegalArgumentException("Capacidade máxima deve ser maior que zero.");
         }
         this.idCilindro = idCilindro;
         this.capacidadeMaxima = capacidadeMaxima;
         this.capacidadeAtual = capacidadeMaxima; // A capacidade atual e com base na capacidade máxima
-        this.qtdeUltimoAbastecimento = 0; // Inicialmente inicializado com a capacidade máxima
+        this.qtdeUltimoAbastecimento = capacidadeMaxima; // Inicialmente inicializado com a capacidade máxima
         this.qtdeUltimoConsumo = 0; // Inicialmente sem consumo
     }
 
